@@ -42,19 +42,20 @@ func findMarkdownFiles(rootDir string) []string {
 
 func saveHtml(path string, content []byte) {
 	if err := os.WriteFile(path, content, 0644); err != nil {
-		log.Fatal("Cannot write file")
+        log.Fatalf("Cannot write file: %s", err)
 	}
 }
 
 func main() {
-	for _, filePath := range findMarkdownFiles(".") {
+	for _, filePath := range findMarkdownFiles("./blog/") {
 		md, err := os.ReadFile(filePath)
 		if err != nil {
 			log.Fatal("Cannot read file")
 		}
+        filePath = strings.TrimPrefix(filePath, "blog/")
 		dir := filepath.Dir(filePath)
 		fileName := strings.TrimSuffix(filepath.Base(filePath), filepath.Ext(filePath))
-		newFileName := filepath.Join(dir, fileName+".html")
+		newFileName := filepath.Join("docs/", dir, fileName+".html")
 
 		html := markdownToHTML(md)
 		saveHtml(newFileName, html)
