@@ -161,7 +161,7 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="project-report" class="level1">
 <h1>Project Report</h1>
-<iframe src="RL_report.pdf" width="100%" height="600px">
+<iframe src="Reinforcement_Learning_and_Algorithm_Discovery.pdf" width="100%" height="600px">
 </iframe>
 </section>
 <section id="notebook" class="level1">
@@ -369,7 +369,7 @@ Figure /content/figures/optimality.pdf:</code></pre>
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/constantin-kuehne\.github\.io\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
