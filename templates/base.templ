@@ -1,0 +1,23 @@
+package templates
+
+templ FooterComponent() {
+	<div>
+		Copyright
+	</div>
+}
+
+templ HeaderComponent(title string) {
+	<head>
+		<title>
+			{ title }
+		</title>
+	</head>
+}
+
+templ BaseComponent(title string, content templ.Component) {
+	<html>
+		@HeaderComponent(title)
+		@content
+		@FooterComponent()
+	</html>
+}

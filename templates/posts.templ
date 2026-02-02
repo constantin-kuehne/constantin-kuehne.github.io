@@ -1,0 +1,11 @@
+package templates
+
+templ PostsComponent(posts []Post) {
+	<div>
+		<ul>
+			for _, post := range posts {
+				<li>{ post.Title }</li>
+			}
+		</ul>
+	</div>
+}
