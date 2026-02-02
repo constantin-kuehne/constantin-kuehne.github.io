@@ -1,0 +1,81 @@
+---
+title: "Learning Disentangled Representations with Identifiable Diffusion Models"
+author: "Constantin Kühne and Till Zemann"
+date: "2024-09-16"
+categories: [Computer Vision, Deep Learning, Representation Learning, Diffusion Models]
+---
+
+# Project Report
+
+## Project Report 1
+
+<iframe src="Disentangled_Diffusion.pdf" width="100%" height="600px"></iframe>
+
+## Project Report 2
+
+<iframe src="Disentangled_Diffusion_2.pdf" width="100%" height="600px"></iframe>
+
+
+# identifiable-diffusion
+
+## Abstract
+
+This work introduces a novel framework that combines the Denoising Diffusion Probabilistic Model (DDPM) with an identifiable Variational Autoencoder (iVAE) for disentangled representation learning. Our approach leverages the strengths of diffusion models in capturing data distributions across scales and the iVAE’s capability to learn identifiable latent representations. Through extensive quantitative experimentation using various disentanglement metrics to compare our model to baseline models, and a qualitative evaluation on the Shapes3d dataset, we demonstrate our method’s ability to generate disentangled representations.
+
+
+> [!TIP]
+> The project uses `pytorch-lightning`'s CLI ([link](https://lightning.ai/docs/pytorch/stable/cli/lightning_cli.html)) functionality to avoid writing boilerplate code for argument parsing. <br>
+
+The training script for the __Shapes3DVAE__ and __Shapes3DIVAE__ baselines thus be ran like:
+```
+python src/train.py \
+ --model=shapes3d.models.Shapes3DVAE \
+ --model.coeff_kl=1 \
+ --trainer.max_epochs=1
+```
+
+any other arguments to either `Trainer` or the model classes can be provided as `--model.foo=bar` or `--trainer.foo=bar`
+
+
+To run the training script for the combined __iVAE+DDPM__ model (`Shapes3DDisentangledDiffusionCombined`), execute:
+```
+python src/train.py \
+ --model=shapes3d.models.Shapes3DDisentangledDiffusionCombined \
+ --trainer.max_epochs=10 \
+ --model.dataset_in_memory=True \
+ --model.batch_size=32 \
+ --model.lr=2e-4 \
+ --model.grad_clip=-1 \
+ --model.coeff_rec=0.1 \
+ --model.coeff_kl=0.0005 \
+ --model.dataset_modulate_mean=false \
+ --model.plot_interpolations_at_epoch_end=true
+```
+
+### Pointers to important files
+
+The base models can be found under `src/base/models.py`. Here we created the class `BaseDisentangledDiffusionCombined` which combines an iVAE with a DDPM.
+
+We use code from `https://github.com/yang-song/score_sde` under the directory `src/temp_diffusion` for the VPSDE in `src/temp_diffusion/sde_lib.py` and the layers of the DDPM in `src/temp_diffusion/layers.py`.
+
+Other important files are `src/base/losses.py` and `src/base/layers.py` where we define respectively the loss function for the DDPM and the DDPM's layers including the conditional from the iVAE.
+
+### Generating samples (inference)
+
+To sample images using a trained iVAE+DDPM model, you can either run `model.plot_interpolations()`, which creates a grid of conditional samples by interpolating each latent dimension and is also used to log images to wandb during training, or you can use the `model.ancestral_sampling(batch_size=1, T=600, z=None, same_xN=False, seed=0)` function that enables more control for the generations. For example, you can vary the number of diffusion time steps and pass a conditioning vector z.
+
+
+### Using other datasets
+
+The model currently is trained on the shapes3d dataset. In order to use different datasets, the model can easily be adapted by defining a new base model for that dataset (refer to `_BaseShapes3DModel` in `src/base/shapes3d`) and then inheriting from that base model, i.e.:
+```py
+class Shapes3DDisentangledDiffusionCombined(
+    _BaseShapes3DModel, base_models.BaseDisentangledDiffusionCombined
+):
+    pass
+```
+
+## Diffusion of a sample batch using the iVAE+DDPM
+
+![InterpolationsDDPMGif](images/optimized_diffusion_gif.gif)
+Each row shows one interpolated latent dimension (while all other dimensions are fixed).

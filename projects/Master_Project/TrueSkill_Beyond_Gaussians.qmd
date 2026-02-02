@@ -1,0 +1,31 @@
+---
+title: "TrueSkill Beyond Gaussians"
+author: "Cedric Lorenz, Nick Bessin, Nina Burdorf, Till Zemann, Isabel Kurth, Lucas Kerschke, Constantin Kühne and Paul Ermler"
+date: "2025-03-05"
+categories: [Factor Graph, Bayesian, Gaussian]
+---
+
+# Project Report
+
+<iframe src="Technical_Report_on_TrueSkill.pdf" width="100%" height="600px"></iframe>
+
+# Masterproject 2024/25: TrueSkill Beyond Gaussians
+## Approximate Inference Methods for Skill-based Ranking and Bayesian Neural Networks
+
+![Sampling MP Banner](images/sampling_mp_banner.png)
+
+## Overview
+This master project researches message passing (MP) on factor graphs by incorporating richer distributions beyond the standard Gaussian approximation. Our goal is to improve the accuracy of approximate inference in **skill-based ranking** (e.g., TrueSkill) and **Bayesian neural networks (BNNs)** by using distributions with more parameters, providing a more expressive alternative to Gaussians. <code style="color:aqua">T</code>hrough <code style="color:aqua">r</code>obust <code style="color:aqua">u</code>pdates, the <code style="color:aqua">e</code>stimated <code style="color:aqua">s</code>kills are <code style="color:aqua">k</code>nown to <code style="color:aqua">i</code>mprove <code style="color:aqua">l</code>og <code style="color:aqua">l</code>ikelihood of observed game outcomes compared to other ranking systems such as ELO.
+
+We extend TrueSkill and Bayesian Neural Networks by incorporating **Mixtures of Gaussians (GMs)** and **Uniform Mixtures (UMs)**—also known as **quantile distributions** or **histograms**—and compare their performance against the typically used Gaussians in terms of **accuracy** and **calibration**.
+
+Our framework is primarily implemented in **Julia**, which enables us to perform efficient sampling-based experiments and fast message-passing inference. This makes it possible to run large-scale probabilistic inference tasks on datasets such as historical **Tennis and League of Legends** matches. However, we also experimented with a Python codebase (under development), which provides a better debugging experience and higher code readability.
+
+## Features
+- We implement both **slow, high-accuracy** methods (e.g., Expectation Maximization) for fitting Gaussian Mixture approximations of marginals and **fast, analytically derived message-passing updates** for efficient inference.
+- We optimized the message computation by using **segment trees** for efficient multiplication and division of multiple distributions.
+- We extend TrueSkill, Linear Regression, and Bayesian Neural Networks (BNNs) to work with **Gaussian Mixtures (GMs), Uniform Mixtures (UMs),** and standard **Gaussians**.
+
+> [!NOTE]
+> The project's focus was on exdending **TrueSkill** with more expressive distributions, so the corresponding code is more robust and validated compared to the code for **Bayesian Neural Networks**, which is more experimental and might not be empirically robust (e.g. for scaling the network and/ or training data size).
+

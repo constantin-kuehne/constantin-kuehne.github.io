@@ -1,0 +1,18 @@
+---
+title: "Beyond Balanced: Learning Static Search Trees with Tree-MDPs"
+author: "Konrad Gerlach, Till Zemann, Constantin Kühne, Hendrik Droste, Alexander Kastius, Rainer Schlosser and Ralf Herbrich"
+date: "2025-05-25"
+categories: [Reinforcement Learning, Deep Learning]
+execute:
+  enabled: false
+notebooks:
+  - _learning_binary_search_trees.ipynb
+---
+
+# Project Report
+
+<iframe src="RL_report.pdf" width="100%" height="600px"></iframe>
+
+# Notebook
+
+{{< embed "_learning_binary_search_trees.ipynb" >}}

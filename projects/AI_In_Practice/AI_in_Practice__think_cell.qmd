@@ -1,0 +1,70 @@
+---
+title: "Automatic Bar Detection with Decoupled Heatmap-Embedding Learning"
+author: "Kühne, Constantin and Postnov, Kirill and Schulze Tast, Johann
+and Treykorn, Felix and Zemann, Till"
+date: "2024-03-12"
+categories: [Computer Vision, Deep Learning, Contrastive Learning, Image Segmentation]
+---
+
+# Project Report
+
+<iframe src="AI_in_Practice__think_cell.pdf" width="100%" height="600px"></iframe>
+
+# Chart Object Detection with Decoupled Heatmap-Embedding Predictions
+
+This repository contains a suite of models based on U-Net variants and the Swin Transformer for image segmentation. The segmentation outputs are a probability heatmap for keypoints (the top-left and bottom-right corners) of bars, as well as `d` channels for contrastive pixel embedding vectors used to match the keypoints of a bounding box.
+
+The models are built upon the U-Net architecture and its advanced variants, using recurrent, residual and attention mechanisms to improve performance.
+
+
+### Model Suite:
+
+| Backbone Model                        | Residual Skip Connections | Attention       | Recurrent Convolutions | Dilated Convolutions | Receptive Field | Paper                                                                                        |
+|---------------------------------------|---------------------------|-----------------|------------------------|----------------------|-----------------|----------------------------------------------------------------------------------------------|
+| UNet                                  | No                        | No              | No                     | No                   | Small           | [ArXiV](https://arxiv.org/abs/1505.04597)                                                    |
+| UNet with Local Attention (AttU_Net)  | No                        | Local           | No                     | No                   | Small           | [ArXiV](https://arxiv.org/abs/1804.03999)                                                    |
+| R2U-Net                               | Yes                       | No              | Yes                    | No                   | Medium          | [ArXiV](https://arxiv.org/abs/1802.06955)                                                    |
+| R2AttU_Net                            | Yes                       | Local           | Yes                    | No                   | Medium          | (combination of R2U_Net and AttnU_Net)                                                       |
+| R2AttU_Net_dilated                    | Yes                       | Local           | Yes                    | Yes                  | Global          | Ours                                                                                         |
+| Unet-like Pure Transformer (Swin-UNet)| Yes                       | Patches within Shifted Windows | No      | No                   | Global          | [ArXiV](https://arxiv.org/abs/2105.05537)                                                    |
+
+
+As backbones, we recommend models with a global receptive field (e.g. the Swin-UNet + SAM optimizer or R2AttU_Net_dilated) for learning pixel embeddings and UNet-based backbones (e.g. the R2AttU_Net performed excellent consistently) for learning the keypoint probability heatmaps.
+
+
+### Losses:
+
+| Loss Name  | Description   | Task   | Paper     |
+|------------|---------------|--------|-----------|
+| CornerNet Focal Loss  | <details> <summary>Click to expand</summary> This modified focal loss handles the imbalance between background and keypoint classes. <br><br>**Parameters:** _Beta_ controls the variance of the predicted Gaussian for a keypoint (a smaller variance makes it easier for non-maximum suppression but more difficult for the model to predict). You can also adjust _gamma_ to make the model focus more on hard instances (e.g., very small or partially occluded boxes). Lastly, you can add an additional weighting _alpha_ to the background and foreground class, but in our experiments we found it best to leave this turned off (-1). </details> | Keypoint Detection (Heatmap) | [ArXiV](https://arxiv.org/pdf/1808.01244.pdf) |
+| (Vectorized) Multi Similarity Loss   | <details> <summary>Click to expand</summary> Optimizes the softmax probability that two pixel-embedding vectors belong to the same box. </details> | Keypoint Matching (Embeds) | Ours (Adapted from [ArXiV](https://arxiv.org/pdf/1904.06627.pdf)) |
+| Pull-Push Loss | <details> <summary>Click to expand</summary> The pull loss decreases intra-box embedding distances, and the push loss increases inter-box distances. </details> | Keypoint Matching (Embeds) | [ArXiV](https://arxiv.org/pdf/1808.01244.pdf) |
+
+### Dataset
+
+We train, tune and evaluate our models on the bar charts "bardata(1031)" of the publically available [ExcelChart400K dataset](https://huggingface.co/datasets/asbljy/DeepRuleDataset/tree/main). 
+This benchmark contains a train (158,140 images), validation (6,121 images) and test (6,262 images) split. The annotated bounding boxes are given in the COCO format (x1, y1, width, height), where a bar is defined via its top-left corner (x1,y1) and its bottom-right corner (x1+width, y1+height).
+
+### Getting Started
+
+To begin training with the default settings:
+```bash
+python train.py
+```
+Optionally you can also use the [sharpness-aware minimization (SAM) optimizer](https://arxiv.org/abs/2010.01412) to boost generalization performance (especially recommended for training the Swin-Unet, but training will take 2x as long):
+```bash
+python train_with_sam.py
+```
+
+To train with custom settings, you can modify the hyperparameters defined in our training loop.
+We recommend setting `random_augmentations=True` and `preprocess_images=True`, as they will likely increase the model's performance while not adding much training overhead.
+The `train_mode` (heatmaps | embeds | heatmaps_and_embeds) lets you switch the task you train the model on. Selecting `heatmaps_and_embeds` results in joint learning of heatmaps and embeddings with one model, which leads to better inference time at the cost of model performance. We recommend training two models to learn the heatmaps and embeds decoupled from one another. This let's the embedding model have the heatmap as extra input for better localization of important embedding pixels and also reduces the hparams (the ms_loss_coeff for weighting the embedding vs. heatmap loss doesn't need to be tuned).
+
+### Logging
+
+The code automatically logs train and validation losses, as well as a batch of heatmap images, similarity matrices between keypoints, and predicted bounding boxes to [wandb](https://wandb.ai/):
+
+![heatmaps_pred](images/heatmaps_pred.png)
+![bounding_boxes_pred](images/bounding_boxes_pred.png)
+
+

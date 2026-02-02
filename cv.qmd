@@ -1,0 +1,206 @@
+---
+format:
+  html:
+    title: "Curriculum Vitae"
+    grid:
+      body-width: "900px"
+  pdf:
+    pdf-engine: xelatex
+    documentclass: scrartcl
+    fontsize: 10pt
+    mainfont: "Helvetica"
+    geometry: "left=0.5in, right=0.5in, top=0.5in, bottom=0.5in"
+    header-includes: |
+      \usepackage{titlesec}
+      \usepackage[hidelinks]{hyperref}
+      \usepackage{fontawesome5}
+      \usepackage{graphicx}
+      \usepackage{enumitem}
+      \pagestyle{empty}
+      \linespread{1.1}
+      \titleformat{\subsection}{\Large\bfseries}{\thesubsection}{0em}{}
+      \titleformat{\subsubsection}{\Large\bfseries}{\thesubsubsection}{0em}{}[\titlerule]
+      \titlespacing*{\subsubsection}{0pt}{3.0ex plus 1ex minus .2ex}{1.0ex plus .2ex}
+---
+
+
+<!--\vspace{-20mm}-->
+::: {.content-visible when-format="pdf"}
+\noindent
+\begin{minipage}[t]{0.43\linewidth}
+\subsubsection{Constantin Kühne} 
+\faEnvelope\ \href{mailto:constantin.kuehne@student.hpi.uni-potsdam.de}{Email} |
+\faGithub\ \href{https://github.com/constantin-kuehne}{GitHub} |
+\faLinkedin\ \href{https://www.linkedin.com/in/constantin-kuehne/}{LinkedIn} |
+\faGraduationCap\ \href{https://scholar.google.com/citations?user=wf3GmgoAAAAJ&hl=en}{Google Scholar}
+\end{minipage}
+<!--
+\hspace{0.366\linewidth}
+\vspace{-25mm}
+\begin{minipage}{0.35\linewidth}
+\newlength{\px}
+\setlength{\px}{1bp} % 1px = 1 big point
+\fbox{\includegraphics[width=100\px]{portrait.jpg}}
+\end{minipage}
+-->
+:::
+
+::: {.content-visible when-format="html"}
+::: {.columns valign="top"}
+
+::: {.column width="80%"}
+## Constantin Kühne
+
+{{< fa envelope >}} [Email](mailto:constantin.kuehne@student.hpi.uni-potsdam.de) | {{< fa brands github >}} [GitHub](https://github.com/constantin-kuehne) | {{< fa brands linkedin >}} [LinkedIn](https://www.linkedin.com/in/constantin-kuehne/) | {{< fa solid graduation-cap>}} [Google Scholar](https://scholar.google.com/citations?user=wf3GmgoAAAAJ&hl=en)
+:::
+
+::: {.column width="20%"}
+![](portrait.jpg){fig-align="right" width="100"}
+:::
+
+:::
+:::
+
+### Education
+
+**MSc Data Engineering** (2023 - present)  
+*Hasso Plattner Institute/ University of Potsdam*
+
+- Exchange semester at Eindhoven University of Technology (2025)
+- Relevant Coursework: Generative AI Models, Deep Learning, Machine Learning for Image Analysis, Reinforcement Learning & Algorithm Discovery, Knowledge Engineering, Advanced Machine Learning Seminars
+
+**BSc Wirtschaftsinformatik/ Business Intelligence** (2019 - 2023)  
+*Hochschule der Bayerischen Wirtschaft*
+
+### Research Experiences
+
+**Semantically Complex Group Object Detection with Vision Language Models (06/2025 - present)**  
+*Hasso Plattner Institute*
+
+- Ongoing master thesis under Prof. Dr. Gerard de Melo at the chair of Artificial Intelligence and Intelligent Systems 
+- Research on adapting vision language models for semantic group object detection tasks (e.g., detecting a group of people and their actions in street view photos)
+- Development of novel neural network architectures and training strategies for this task as well as evaluation on relevant datasets
+
+**Icewafl: A Configurable Data Stream Polluter** (11/2024 - 04/2025)  
+*Hasso Plattner Institute*
+
+- Research assistant role under Dr. Lisa Ehrlinger at the Information Systems chair of Prof. Dr. Felix Naumann
+- Research and software development on a framework for data pollution via Apache Flink [[Link](https://doi.org/10.48786/edbt.2025.64)]
+- Evaluation of the effects of data errors on machine learning models
+
+**Beyond Balanced: Learning Static Search Trees with Tree-MDPs** (10/2024 - 04/2025)  
+*Hasso Plattner Institute*
+
+- Research seminar under Alexander Kastius; chair for Artificial Intelligence and Sustainability of Prof. Dr. Ralf Herbrich
+- Designed a reinforcement learning framework (Tree-MDP + A2C) to construct static binary search trees for database indexing that adapt to skewed query distributions [[Link](https://drive.google.com/file/d/1sOHynUFuRWUnLP-uZkBOTXT6C9ogULqH/view?usp=sharing)]
+- Achieved up to 40% faster average lookup times on skewed query distributions vs. traditional binary search
+- Demonstrated scalability and adaptability to varying data distributions
+
+**TrueSkill/MLPs Beyond Gaussians** (10/2024 - 03/2025)  
+*Hasso Plattner Institute*  
+
+- Master's project under Prof. Dr. Ralf Herbrich at the chair for Artificial Intelligence and Sustainability
+- Research on more accurate factor graph inference via mixture models (uniform mixtures and Gaussian mixtures)   [[Link](https://drive.google.com/file/d/17mlgvUKlIB_VP3ZYTpMi7qGnfbfY64ys/view?usp=sharing)]
+- Evaluation of these methods on TrueSkill and Multilayer Perceptrons
+
+**Learning Disentangled Representations with Identifiable Diffusion Models** (10/2023 - 09/2024)  
+*Hasso Plattner Institute*
+
+- Research seminar under Alexander Rakowski and Eshant English at the Digital Health & Machine Learning chair of Prof. Dr. Christoph Lippert
+- Research on combining identifiable Variational Autoencoders with Denoising Diffusion Probabilistic Mode to gain disentangled latent representations [[Part1](https://drive.google.com/file/d/1_oWvKfNyAmg4wjw__XWWRRk5nsjLAm2T/view?usp=sharing)] [[Part2](https://drive.google.com/file/d/1rb7q_mXkYCN9OHlsQX6c75_jyZYsqafr/view?usp=sharing)]
+
+
+::: {.content-visible when-format="html"}
+**Automatic Bar Detection with Decoupled Heatmap-Embedding Learning** (10/2023 - 04/2024)  
+*Hasso Plattner Institute*
+
+- Research seminar at the chair of Artificial Intelligence and Intelligent Systems of Prof. Dr. Gerard de Melo 
+- Research on the automatic extraction of data from bar charts
+- Created a new decoupled neural network architecture and loss for this specific task [[Link](https://drive.google.com/file/d/15AaKlPhOA1sHS4sQyuxn7tUdcHHcFmEq/view?usp=sharing)]
+:::
+
+**Creation of knowledge graphs based on natural language texts in a domain-specific context** (10/2022 - 02/2023)  
+*Hochschule der Bayerischen Wirtschaft & Infineon Technologies AG*
+
+- Bachelor's thesis on automatically creating knowledge graphs of domain-specific file content
+- Fine-tuning of language models (RoBERTa) for triple extraction
+- Design and implementation of a semi-automatic triple extraction pipeline via seeds and semi-supervised machine learning
+
+### Industry Experiences
+
+**System Engineer** (03/2023 - 08/2023)  
+*Infineon Technologies AG*
+
+- Implementation and establishment of a Customer Data Platform
+- Analysis and value creation out of customer data
+- Consolidation and quality assurance of different data sources
+
+**Dual Studies at the Analytics Department** (09/2019 - 03/2023)  
+*Infineon Technologies AG*
+
+- Development, implementation, and operationalization of software solutions in the field of Data Science with a focus on natural language processing
+- Creation of semantic search for domain-specific technical documents via Elasticsearch and language models
+- Design and implementation of an automatic matching engine for finding and matching funding programmes to fund managers, reducing their workload by up to 50%
+- Creation and operationalization of a framework to train machine learning algorithms for the optimization of stock management, resulting in 500K€ (with prospects up to 6.5M€) scrap avoidance and 1600 working hours saved per year
+
+### Technical Skills
+
+::: {.content-visible when-format="pdf"}
+\begin{minipage}[t]{0.32\textwidth}
+\begin{itemize}[noitemsep, topsep=0pt]
+    \item Python 
+    \item Java 
+    \item Typescript
+    \item SQL
+\end{itemize}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.32\textwidth}
+\begin{itemize}[noitemsep, topsep=0pt]
+    \item PyTorch 
+    \item Lightning 
+    \item Weights \& Biases
+    \item Stable Baselines3
+\end{itemize}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.32\textwidth}
+\begin{itemize}[noitemsep, topsep=0pt]
+    \item Docker
+    \item Databricks
+    \item Elasticsearch 
+    \item Tableau
+\end{itemize}
+\end{minipage}
+:::
+
+::: {.content-visible when-format="html"}
+::: columns
+::: column
+- Python (Advanced)
+- SQL (Advanced)
+- Java (Intermediate)
+:::
+
+::: column
+- PyTorch (Intermediate)
+- Docker (Intermediate)
+- Databricks (Intermediate)
+:::
+
+::: column
+- Elasticsearch (Intermediate)
+- Tableau (Intermediate)
+:::
+:::
+:::
+
+### Awards
+- Deutschlandstipendium, 2023-2025
+
+### Publications
+1. Christoph Schinninger and Fabian Panse and Constantin Kühne and Lisa Ehrlinger. Icewafl: A Configurable Data Stream Polluter. In Proceedings 28th International Conference on Extending Database Technology (EDBT 2025). [https://doi.org/10.48786/edbt.2025.64](https://doi.org/10.48786/edbt.2025.64)
+
+### Languages
+- German - (C2)
+- English - (C1)
+- French - (A2)
+
