@@ -1,5 +1,7 @@
 project:
   type: website
+  resources:
+    - "assets/*"
 
 website:
   title: "Constantin Kühne"
@@ -9,8 +11,6 @@ website:
         text: CV
       - href: projects.qmd
         text: Projects
-      # - href: blog.qmd
-      #   text: Blog
 
 format:
   html:

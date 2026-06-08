@@ -9,7 +9,7 @@ format:
     documentclass: scrartcl
     fontsize: 10pt
     mainfont: "Helvetica"
-    geometry: "left=0.5in, right=0.5in, top=0.5in, bottom=0.5in"
+    geometry: "a4paper, left=0.3in, right=0.3in, top=0.3in, bottom=0.3in"
     header-includes: |
       \usepackage{titlesec}
       \usepackage[hidelinks]{hyperref}
@@ -27,7 +27,7 @@ format:
 <!--\vspace{-20mm}-->
 ::: {.content-visible when-format="pdf"}
 \noindent
-\begin{minipage}[t]{0.43\linewidth}
+\begin{minipage}[t]{0.5\linewidth}
 \subsubsection{Constantin Kühne} 
 \faEnvelope\ \href{mailto:constantin.kuehne@student.hpi.uni-potsdam.de}{Email} |
 \faGithub\ \href{https://github.com/constantin-kuehne}{GitHub} |
@@ -74,7 +74,7 @@ format:
 
 ### Research Experiences
 
-**Semantically Complex Group Object Detection with Vision Language Models (06/2025 - present)**  
+**Semantically Complex Group Object Detection with Vision Language Models** (11/2025 - present)  
 *Hasso Plattner Institute*
 
 - Ongoing master thesis under Prof. Dr. Gerard de Melo at the chair of Artificial Intelligence and Intelligent Systems 
