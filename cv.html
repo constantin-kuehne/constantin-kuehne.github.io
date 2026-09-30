@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,10 +12,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -39,10 +42,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-6dcb9c2c9aa90912f6d5ddd449cc7e77.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-f686a1af17d5c9da9e6dabad8f8d568e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
 <link href="site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -119,10 +122,10 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#education" id="toc-education" class="nav-link active" data-scroll-target="#education">Education</a></li>
-  <li><a href="#research-experiences" id="toc-research-experiences" class="nav-link" data-scroll-target="#research-experiences">Research Experiences</a></li>
-  <li><a href="#industry-experiences" id="toc-industry-experiences" class="nav-link" data-scroll-target="#industry-experiences">Industry Experiences</a></li>
+  <li><a href="#research-experience" id="toc-research-experience" class="nav-link" data-scroll-target="#research-experience">Research Experience</a></li>
+  <li><a href="#industry-experience" id="toc-industry-experience" class="nav-link" data-scroll-target="#industry-experience">Industry Experience</a></li>
   <li><a href="#technical-skills" id="toc-technical-skills" class="nav-link" data-scroll-target="#technical-skills">Technical Skills</a></li>
-  <li><a href="#awards" id="toc-awards" class="nav-link" data-scroll-target="#awards">Awards</a></li>
+  <li><a href="#awards-activities" id="toc-awards-activities" class="nav-link" data-scroll-target="#awards-activities">Awards &amp; Activities</a></li>
   <li><a href="#publications" id="toc-publications" class="nav-link" data-scroll-target="#publications">Publications</a></li>
   <li><a href="#languages" id="toc-languages" class="nav-link" data-scroll-target="#languages">Languages</a></li>
   </ul>
@@ -176,8 +179,8 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>BSc Wirtschaftsinformatik/ Business Intelligence</strong> (2019 - 2023)<br>
 <em>Hochschule der Bayerischen Wirtschaft</em></p>
 </section>
-<section id="research-experiences" class="level3">
-<h3 class="anchored" data-anchor-id="research-experiences">Research Experiences</h3>
+<section id="research-experience" class="level3">
+<h3 class="anchored" data-anchor-id="research-experience">Research Experience</h3>
 <p><strong>Semantically Complex Group Object Detection with Vision Language Models</strong> (11/2025 - present)<br>
 <em>Hasso Plattner Institute</em></p>
 <ul>
@@ -196,7 +199,7 @@ ul.task-list li input[type="checkbox"] {
 <em>Hasso Plattner Institute</em></p>
 <ul>
 <li>Research seminar under Alexander Kastius; chair for Artificial Intelligence and Sustainability of Prof.&nbsp;Dr.&nbsp;Ralf Herbrich</li>
-<li>Designed a reinforcement learning framework (Tree-MDP + A2C) to construct static binary search trees for database indexing that adapt to skewed query distributions [<a href="https://drive.google.com/file/d/1sOHynUFuRWUnLP-uZkBOTXT6C9ogULqH/view?usp=sharing">Link</a>]</li>
+<li>Designed a reinforcement learning framework (Tree-MDP + A2C) to construct static binary search trees for database indexing that adapt to skewed query distributions [<a href="https://constantin-kuehne.github.io/projects/Reinforcement_Learning_For_Algorithm_Discovery/Reinforcement_Learning_and_Algorithm_Discovery.pdf">Link</a>]</li>
 <li>Achieved up to 40% faster average lookup times on skewed query distributions vs.&nbsp;traditional binary search</li>
 <li>Demonstrated scalability and adaptability to varying data distributions</li>
 </ul>
@@ -204,21 +207,21 @@ ul.task-list li input[type="checkbox"] {
 <em>Hasso Plattner Institute</em></p>
 <ul>
 <li>Master’s project under Prof.&nbsp;Dr.&nbsp;Ralf Herbrich at the chair for Artificial Intelligence and Sustainability</li>
-<li>Research on more accurate factor graph inference via mixture models (uniform mixtures and Gaussian mixtures) [<a href="https://drive.google.com/file/d/17mlgvUKlIB_VP3ZYTpMi7qGnfbfY64ys/view?usp=sharing">Link</a>]</li>
+<li>Research on more accurate factor graph inference via mixture models (uniform mixtures and Gaussian mixtures) [<a href="https://constantin-kuehne.github.io/projects/Master_Project/Technical_Report_on_TrueSkill.pdf">Link</a>]</li>
 <li>Evaluation of these methods on TrueSkill and Multilayer Perceptrons</li>
 </ul>
 <p><strong>Learning Disentangled Representations with Identifiable Diffusion Models</strong> (10/2023 - 09/2024)<br>
 <em>Hasso Plattner Institute</em></p>
 <ul>
 <li>Research seminar under Alexander Rakowski and Eshant English at the Digital Health &amp; Machine Learning chair of Prof.&nbsp;Dr.&nbsp;Christoph Lippert</li>
-<li>Research on combining identifiable Variational Autoencoders with Denoising Diffusion Probabilistic Mode to gain disentangled latent representations [<a href="https://drive.google.com/file/d/1_oWvKfNyAmg4wjw__XWWRRk5nsjLAm2T/view?usp=sharing">Part1</a>] [<a href="https://drive.google.com/file/d/1rb7q_mXkYCN9OHlsQX6c75_jyZYsqafr/view?usp=sharing">Part2</a>]</li>
+<li>Research on combining identifiable Variational Autoencoders with Denoising Diffusion Probabilistic Model to gain disentangled latent representations [<a href="https://constantin-kuehne.github.io/projects/Advanced_Machine_Learning_Seminar/Disentangled_Diffusion.pdf">Part1</a>] [<a href="https://constantin-kuehne.github.io/projects/Advanced_Machine_Learning_Seminar/Disentangled_Diffusion_2.pdf">Part2</a>]</li>
 </ul>
 <p><strong>Automatic Bar Detection with Decoupled Heatmap-Embedding Learning</strong> (10/2023 - 04/2024)<br>
 <em>Hasso Plattner Institute</em></p>
 <ul>
 <li>Research seminar at the chair of Artificial Intelligence and Intelligent Systems of Prof.&nbsp;Dr.&nbsp;Gerard de Melo</li>
 <li>Research on the automatic extraction of data from bar charts</li>
-<li>Created a new decoupled neural network architecture and loss for this specific task [<a href="https://drive.google.com/file/d/15AaKlPhOA1sHS4sQyuxn7tUdcHHcFmEq/view?usp=sharing">Link</a>]</li>
+<li>Created a new decoupled neural network architecture and loss for this specific task [<a href="https://constantin-kuehne.github.io/projects/AI_In_Practice/AI_in_Practice__think_cell.pdf">Link</a>]</li>
 </ul>
 <p><strong>Creation of knowledge graphs based on natural language texts in a domain-specific context</strong> (10/2022 - 02/2023)<br>
 <em>Hochschule der Bayerischen Wirtschaft &amp; Infineon Technologies AG</em></p>
@@ -228,8 +231,8 @@ ul.task-list li input[type="checkbox"] {
 <li>Design and implementation of a semi-automatic triple extraction pipeline via seeds and semi-supervised machine learning</li>
 </ul>
 </section>
-<section id="industry-experiences" class="level3">
-<h3 class="anchored" data-anchor-id="industry-experiences">Industry Experiences</h3>
+<section id="industry-experience" class="level3">
+<h3 class="anchored" data-anchor-id="industry-experience">Industry Experience</h3>
 <p><strong>System Engineer</strong> (03/2023 - 08/2023)<br>
 <em>Infineon Technologies AG</em></p>
 <ul>
@@ -269,16 +272,22 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </section>
-<section id="awards" class="level3">
-<h3 class="anchored" data-anchor-id="awards">Awards</h3>
+<section id="awards-activities" class="level3">
+<h3 class="anchored" data-anchor-id="awards-activities">Awards &amp; Activities</h3>
 <ul>
-<li>Deutschlandstipendium, 2023-2025</li>
+<li>Deutschlandstipendium (national merit scholarship), 2023-2025</li>
+<li>ELLIS Summer School on Computer Vision &amp; Machine Learning, Technical University of Munich, 09/2026
+<ul>
+<li>Selected participant</li>
+<li>Presented a poster on my master’s thesis work</li>
+</ul></li>
 </ul>
 </section>
 <section id="publications" class="level3">
 <h3 class="anchored" data-anchor-id="publications">Publications</h3>
 <ol type="1">
-<li>Christoph Schinninger and Fabian Panse and Constantin Kühne and Lisa Ehrlinger. Icewafl: A Configurable Data Stream Polluter. In Proceedings 28th International Conference on Extending Database Technology (EDBT 2025). <a href="https://doi.org/10.48786/edbt.2025.64">https://doi.org/10.48786/edbt.2025.64</a></li>
+<li>Christoph Schinninger and Fabian Panse and <strong>Constantin Kühne</strong> and Lisa Ehrlinger. Icewafl: A Configurable Data Stream Polluter. In Proceedings 28th International Conference on Extending Database Technology (EDBT 2025).<br>
+<a href="https://doi.org/10.48786/edbt.2025.64">https://doi.org/10.48786/edbt.2025.64</a></li>
 </ol>
 </section>
 <section id="languages" class="level3">
