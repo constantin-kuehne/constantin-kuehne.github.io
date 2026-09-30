@@ -16,6 +16,13 @@ format:
       \usepackage{fontawesome5}
       \usepackage{graphicx}
       \usepackage{enumitem}
+      \setlist[itemize,2]{
+          label=$\circ$,
+          topsep=0pt, 
+          partopsep=0pt, 
+          itemsep=0pt,
+          leftmargin=1.2em
+        }
       \pagestyle{empty}
       \linespread{1.1}
       \titleformat{\subsection}{\Large\bfseries}{\thesubsection}{0em}{}
@@ -72,7 +79,7 @@ format:
 **BSc Wirtschaftsinformatik/ Business Intelligence** (2019 - 2023)  
 *Hochschule der Bayerischen Wirtschaft*
 
-### Research Experiences
+### Research Experience
 
 **Semantically Complex Group Object Detection with Vision Language Models** (11/2025 - present)  
 *Hasso Plattner Institute*
@@ -92,7 +99,7 @@ format:
 *Hasso Plattner Institute*
 
 - Research seminar under Alexander Kastius; chair for Artificial Intelligence and Sustainability of Prof. Dr. Ralf Herbrich
-- Designed a reinforcement learning framework (Tree-MDP + A2C) to construct static binary search trees for database indexing that adapt to skewed query distributions [[Link](https://drive.google.com/file/d/1sOHynUFuRWUnLP-uZkBOTXT6C9ogULqH/view?usp=sharing)]
+- Designed a reinforcement learning framework (Tree-MDP + A2C) to construct static binary search trees for database indexing that adapt to skewed query distributions [[Link](https://constantin-kuehne.github.io/projects/Reinforcement_Learning_For_Algorithm_Discovery/Reinforcement_Learning_and_Algorithm_Discovery.pdf)]
 - Achieved up to 40% faster average lookup times on skewed query distributions vs. traditional binary search
 - Demonstrated scalability and adaptability to varying data distributions
 
@@ -100,14 +107,14 @@ format:
 *Hasso Plattner Institute*  
 
 - Master's project under Prof. Dr. Ralf Herbrich at the chair for Artificial Intelligence and Sustainability
-- Research on more accurate factor graph inference via mixture models (uniform mixtures and Gaussian mixtures)   [[Link](https://drive.google.com/file/d/17mlgvUKlIB_VP3ZYTpMi7qGnfbfY64ys/view?usp=sharing)]
+- Research on more accurate factor graph inference via mixture models (uniform mixtures and Gaussian mixtures)   [[Link](https://constantin-kuehne.github.io/projects/Master_Project/Technical_Report_on_TrueSkill.pdf)]
 - Evaluation of these methods on TrueSkill and Multilayer Perceptrons
 
 **Learning Disentangled Representations with Identifiable Diffusion Models** (10/2023 - 09/2024)  
 *Hasso Plattner Institute*
 
 - Research seminar under Alexander Rakowski and Eshant English at the Digital Health & Machine Learning chair of Prof. Dr. Christoph Lippert
-- Research on combining identifiable Variational Autoencoders with Denoising Diffusion Probabilistic Mode to gain disentangled latent representations [[Part1](https://drive.google.com/file/d/1_oWvKfNyAmg4wjw__XWWRRk5nsjLAm2T/view?usp=sharing)] [[Part2](https://drive.google.com/file/d/1rb7q_mXkYCN9OHlsQX6c75_jyZYsqafr/view?usp=sharing)]
+- Research on combining identifiable Variational Autoencoders with Denoising Diffusion Probabilistic Model to gain disentangled latent representations [[Part1](https://constantin-kuehne.github.io/projects/Advanced_Machine_Learning_Seminar/Disentangled_Diffusion.pdf)] [[Part2](https://constantin-kuehne.github.io/projects/Advanced_Machine_Learning_Seminar/Disentangled_Diffusion_2.pdf)]
 
 
 ::: {.content-visible when-format="html"}
@@ -116,7 +123,7 @@ format:
 
 - Research seminar at the chair of Artificial Intelligence and Intelligent Systems of Prof. Dr. Gerard de Melo 
 - Research on the automatic extraction of data from bar charts
-- Created a new decoupled neural network architecture and loss for this specific task [[Link](https://drive.google.com/file/d/15AaKlPhOA1sHS4sQyuxn7tUdcHHcFmEq/view?usp=sharing)]
+- Created a new decoupled neural network architecture and loss for this specific task [[Link](https://constantin-kuehne.github.io/projects/AI_In_Practice/AI_in_Practice__think_cell.pdf)]
 :::
 
 **Creation of knowledge graphs based on natural language texts in a domain-specific context** (10/2022 - 02/2023)  
@@ -126,7 +133,7 @@ format:
 - Fine-tuning of language models (RoBERTa) for triple extraction
 - Design and implementation of a semi-automatic triple extraction pipeline via seeds and semi-supervised machine learning
 
-### Industry Experiences
+### Industry Experience
 
 **System Engineer** (03/2023 - 08/2023)  
 *Infineon Technologies AG*
@@ -193,11 +200,15 @@ format:
 :::
 :::
 
-### Awards
-- Deutschlandstipendium, 2023-2025
+### Awards & Activities
+- Deutschlandstipendium (national merit scholarship), 2023-2025
+- ELLIS Summer School on Computer Vision & Machine Learning, Technical University of Munich, 09/2026
+    - Selected participant
+    - Presented a poster on my master's thesis work 
 
 ### Publications
-1. Christoph Schinninger and Fabian Panse and Constantin Kühne and Lisa Ehrlinger. Icewafl: A Configurable Data Stream Polluter. In Proceedings 28th International Conference on Extending Database Technology (EDBT 2025). [https://doi.org/10.48786/edbt.2025.64](https://doi.org/10.48786/edbt.2025.64)
+1. Christoph Schinninger and Fabian Panse and **Constantin Kühne** and Lisa Ehrlinger. Icewafl: A Configurable Data Stream Polluter. In Proceedings 28th International Conference on Extending Database Technology (EDBT 2025).  
+[https://doi.org/10.48786/edbt.2025.64](https://doi.org/10.48786/edbt.2025.64)
 
 ### Languages
 - German - (C2)
